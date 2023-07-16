@@ -15,6 +15,7 @@ const allowCors = [
   'https://api.exir74.nomoredomains.xyz/'
 ]
 
+
 const app = express();
 app.use(function (req, res, next){
   const {origin} = req.headers;
