@@ -150,8 +150,8 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
-  headers: {
-    authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
-  },
+  baseUrl: 'http://api.exir74.nomoredomains.xyz/',
+  // headers: {
+  //   authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
+  // },
 });
