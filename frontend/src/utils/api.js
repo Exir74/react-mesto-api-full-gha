@@ -154,5 +154,4 @@ export const api = new Api({
   // headers: {
   //   authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
   // },
-  'Content-Type': 'application/json'
 });
