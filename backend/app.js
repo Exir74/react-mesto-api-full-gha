@@ -11,8 +11,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowedCors = [
   'https://exir74.nomoredomains.xyz/',
   'http://exir74.nomoredomains.xyz/',
-  'localhost:3000',
-  '127.0.0.1:3000'
+  'localhost:3000/',
+  '127.0.0.1:3000/'
 ];
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
@@ -35,7 +35,6 @@ app.use(function(req, res, next) {
     return res.end();
   }
   next();
-  return true;
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
