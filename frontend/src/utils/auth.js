@@ -18,6 +18,7 @@ export const register = (password, email) => {
 
 export const authorize = (password, email) => {
   return fetch(`${BASE_URL}/signin`, {
+    credentials: 'include',
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -29,7 +30,8 @@ export const authorize = (password, email) => {
   })
     .then((res => (res.json())))
     .then((data) => {
-      // console.log(data)
+      console.log(data)
+      console.log()
       if (data.token) {
         localStorage.setItem('token', data.token);
         return data;
