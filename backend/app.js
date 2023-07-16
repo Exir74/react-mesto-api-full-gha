@@ -35,6 +35,7 @@ app.use(function(req, res, next) {
     return res.end();
   }
   next();
+  return true;
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
