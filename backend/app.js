@@ -9,8 +9,8 @@ const routes = require('./routes/index');
 const { URL, PORT } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowedCors = [
-  'https://http://exir74.nomoredomains.xyz/',
-  'http://http://exir74.nomoredomains.xyz/',
+  'https://exir74.nomoredomains.xyz/',
+  'http://exir74.nomoredomains.xyz/',
   'localhost:3000',
   '127.0.0.1:3000'
 ];
@@ -32,7 +32,6 @@ app.use(function(req, res, next) {
     return res.end();
   }
   next();
-  return true;
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
