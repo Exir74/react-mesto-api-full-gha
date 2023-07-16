@@ -8,7 +8,6 @@ const errorHandler = require('./errors/errorHandler');
 const routes = require('./routes/index');
 const { URL, PORT } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors')
 const allowedCors = [
   'https://http://exir74.nomoredomains.xyz/',
   'http://http://exir74.nomoredomains.xyz/',
@@ -28,12 +27,12 @@ app.use(function(req, res, next) {
   }
   const { method } = req;
   if (method === 'OPTIONS') {
-    // разрешаем кросс-доменные запросы любых типов (по умолчанию)
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
   }
   next();
+  return true;
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
