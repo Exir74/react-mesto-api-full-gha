@@ -1,0 +1,11 @@
+.popup__error-message{
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  min-height: 13px;
+  color: #ff0000;
+  display: none;
+  
+}
+

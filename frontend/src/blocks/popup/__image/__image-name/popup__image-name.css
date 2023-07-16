@@ -1,0 +1,7 @@
+.popup__image-name{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  margin: 0;
+  padding: 0;
+  
+}

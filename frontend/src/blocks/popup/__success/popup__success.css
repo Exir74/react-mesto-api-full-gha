@@ -1,0 +1,11 @@
+.popup__success{
+    grid-column: 2/3;
+    margin: 0;
+    padding: 0;
+    min-width: 430px;
+    min-height: 330px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: grid;
+
+}

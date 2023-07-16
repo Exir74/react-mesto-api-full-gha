@@ -1,0 +1,11 @@
+.authorization__input{
+    box-sizing: border-box;
+    padding-bottom: 13px;
+    background: #000000;
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    color: white;
+}
+.authorization__input::placeholder{
+    color: white;
+}

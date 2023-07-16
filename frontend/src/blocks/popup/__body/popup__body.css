@@ -1,0 +1,7 @@
+.popup__body{
+    grid-template-rows: 60px auto auto 60px;
+    grid-template-columns: 36px auto 36px ;
+    min-height: 330px;
+    display: grid;
+
+}
