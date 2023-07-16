@@ -11,8 +11,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowCors = [
   '127.0.0.1:3000',
   'localhost:3000',
-  'http://api.exir74.nomoredomains.xyz/',
-  'https://api.exir74.nomoredomains.xyz/'
+  'http://api.exir74.nomoredomains.xyz',
+  'https://api.exir74.nomoredomains.xyz'
 ]
 
 

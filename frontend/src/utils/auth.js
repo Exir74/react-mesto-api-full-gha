@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.exir74.nomoredomains.xyz/'
+export const BASE_URL = 'http://api.exir74.nomoredomains.xyz'
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
