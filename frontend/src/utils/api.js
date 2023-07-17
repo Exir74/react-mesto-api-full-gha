@@ -14,6 +14,7 @@ class Api {
   getUserInformation() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: 'GET',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
       },
@@ -26,6 +27,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: 'GET',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
       },
@@ -38,8 +40,9 @@ class Api {
   setUserInformation(name, subtitle) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
-        authorization: this.headers.authorization,
+        // authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -54,6 +57,7 @@ class Api {
   addUserCard(name, link) {
     return fetch(`${this.baseUrl}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
         'Content-Type': 'application/json',
@@ -71,6 +75,7 @@ class Api {
   deleteUserCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
         'Content-Type': 'application/json',
@@ -83,6 +88,7 @@ class Api {
   setLike(cardId) {
     return fetch(this.baseUrl + '/cards/' + cardId + '/likes', {
       method: 'PUT',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
         'Content-Type': 'application/json',
@@ -96,6 +102,7 @@ class Api {
   removeLike(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
         'Content-Type': 'application/json',
@@ -110,6 +117,7 @@ class Api {
     if (isLiked){
       return fetch(this.baseUrl + '/cards/' + cardId + '/likes', {
         method: 'PUT',
+        credentials: 'include',
         headers: {
           authorization: this.headers.authorization,
           'Content-Type': 'application/json',
@@ -121,6 +129,7 @@ class Api {
     }else {
       return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
         method: 'DELETE',
+        credentials: 'include',
         headers: {
           authorization: this.headers.authorization,
           'Content-Type': 'application/json',
@@ -135,6 +144,7 @@ class Api {
   setUserAvatar(link) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         authorization: this.headers.authorization,
         'Content-Type': 'application/json',
@@ -151,7 +161,8 @@ class Api {
 
 export const api = new Api({
   baseUrl: 'http://api.exir74.nomoredomains.xyz',
-  // headers: {
+  headers: {
+    credentials: 'include',
   //   authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
-  // },
+  },
 });

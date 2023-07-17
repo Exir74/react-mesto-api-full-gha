@@ -2,6 +2,7 @@ export const BASE_URL = 'http://api.exir74.nomoredomains.xyz'
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -18,8 +19,8 @@ export const register = (password, email) => {
 
 export const authorize = (password, email) => {
   return fetch(`${BASE_URL}/signin`, {
-    credentials: 'include',
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -31,7 +32,7 @@ export const authorize = (password, email) => {
     .then((res => (res.json())))
     .then((data) => {
       console.log(data)
-      console.log()
+      console.log(document)
       if (data.token) {
         localStorage.setItem('token', data.token);
         return data;
@@ -40,17 +41,31 @@ export const authorize = (password, email) => {
     .catch(err => console.log(err))
 }
 
-export const checkToken = (token)=>{
+// export const checkToken = (token)=>{
+//   return fetch(`${BASE_URL}/users/me`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       "Authorization" : `Bearer ${token}`
+//     }
+//     })
+//     .then(res=> res.json())
+//     // .then(data=> data)
+//     .then((data)=>{
+//       console.log(data)
+//     })
+// }
+
+export const checkToken = ()=>{
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
-      "Authorization" : `Bearer ${token}`
+      'Accept': 'application/json'
+      // "Authorization" : `Bearer ${token}`
     }
-    })
+  })
     .then(res=> res.json())
     .then(data=> data)
-
 }
-
-
