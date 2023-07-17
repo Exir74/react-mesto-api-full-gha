@@ -12,7 +12,10 @@ const allowedCors = [
   'https://exir74.nomoredomains.xyz',
   'http://exir74.nomoredomains.xyz',
   'http://localhost:3000',
-  'http://127.0.0.1:3000'
+  'http://127.0.0.1:3000',
+  '127.0.0.1:3000',
+  'localhost:3000',
+  'exir74.nomoredomains.xyz',
 ];
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 

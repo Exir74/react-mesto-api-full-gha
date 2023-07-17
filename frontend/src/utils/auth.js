@@ -29,15 +29,22 @@ export const authorize = (password, email) => {
       email: email
     })
   })
-    .then((res => (res.json())))
-    .then((data) => {
-      console.log(data)
-      console.log(document)
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        return data;
+    .then((res)=>{
+      if (res.ok){
+        return res
+        console.log(res)
       }
+      return Promise.reject(`Error ${res.status}`)
     })
+    // .then((res => (res.json())))
+    // .then((data) => {
+    //   console.log(data)
+    //   console.log(document)
+    //   if (data.token) {
+    //     localStorage.setItem('token', data.token);
+    //     return data;
+    //   }
+    // })
     .catch(err => console.log(err))
 }
 
