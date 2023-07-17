@@ -30,10 +30,12 @@ class Api {
       method: 'GET',
       credentials: 'include',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
     })
       .then((res) => {
+        console.log(res)
         return this._getResponseData(res);
       })
   }
