@@ -2,11 +2,11 @@
   "name": "mesto-react-auth",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://exir74.github.io/mesto-react-auth",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && scp -r ./build/* xir74@158.160.22.77:/home/exir74/react-mesto-api-full-gha/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +41,5 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  },
-  "proxy": "http://localhost:4000"
+  }
 }
