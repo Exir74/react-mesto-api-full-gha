@@ -23,7 +23,7 @@ const app = express();
 
 
 
-app.use(helmet());
+
 app.use(function(req, res, next) {
   const { origin } = req.headers;
   const { method } = req;
@@ -40,6 +40,7 @@ app.use(function(req, res, next) {
   }
   return next();
 });
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

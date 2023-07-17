@@ -8,7 +8,6 @@ class Api {
     if (!res.ok) {
       return Promise.reject(`Ошибка: ${res.status}`);
     }
-    console.log(res.json())
     return res.json();
   }
 
@@ -35,7 +34,6 @@ class Api {
       },
     })
       .then((res) => {
-        console.log(res)
         return this._getResponseData(res);
       })
   }

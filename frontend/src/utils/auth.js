@@ -30,13 +30,18 @@ export const authorize = (password, email) => {
     })
   })
     .then((res => (res.json())))
+    .then((data)=>{
+      if(data._id) {
+        return data
+      }
+      return  null
+    })
     // .then((data) => {
     //   if (data.token) {
     //     localStorage.setItem('token', data.token);
     //     return data;
     //   }
     // })
-    .then(data => data)
     .catch(err => console.log(err))
 }
 
@@ -45,11 +50,12 @@ export const checkToken = ()=>{
     method: 'GET',
     credentials: 'include',
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
     }
     })
     .then(res=> res.json())
-    .then(data=> data)
+    //.then(data=> data)
 
 }
 

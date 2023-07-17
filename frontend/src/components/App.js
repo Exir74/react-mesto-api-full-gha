@@ -45,6 +45,7 @@ function App() {
   function handleLogin(password, email) {
     auth.authorize(password, email)
       .then(data => {
+        console.log(data)
         if (data) {
           setIsLoggedIn(true)
           navigate('/', {replace: true})
@@ -96,21 +97,32 @@ function App() {
     handleTokenCheck()
   }, [])
 
-  function handleTokenCheck() {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token')
-      if (token) {
-        auth.checkToken(token)
-          .then((res) => {
-            setIsLoggedIn(true)
-            setUserEmail(res.data.email)
-            navigate("/", {replace: true})
-            getCards()
-          })
-          .catch(err => console.log(err))
-      }
-    }
-  }
+  // function handleTokenCheck() {
+  //   if (localStorage.getItem('token')) {
+  //     const token = localStorage.getItem('token')
+  //     if (token) {
+  //       auth.checkToken(token)
+  //         .then((res) => {
+  //           setIsLoggedIn(true)
+  //           setUserEmail(res.data.email)
+  //           navigate("/", {replace: true})
+  //           getCards()
+  //         })
+  //         .catch(err => console.log(err))
+  //     }
+  //   }
+  // }
+
+function handleTokenCheck(){
+    auth.checkToken()
+      .then((res) => {
+        setIsLoggedIn(true)
+        setUserEmail(res.data.email)
+        navigate("/", {replace: true})
+        getCards()
+      })
+      .catch(err => console.log(err))
+}
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -196,6 +208,7 @@ function App() {
       })
     api.getUserInformation().then((res) => {
       setCurrentUser(res)
+      console.log(currentUser)
     })
       .catch((err) => {
         console.log(err)
