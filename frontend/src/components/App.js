@@ -45,7 +45,6 @@ function App() {
   function handleLogin(password, email) {
     auth.authorize(password, email)
       .then(data => {
-        console.log(data)
         if (data) {
           setIsLoggedIn(true)
           navigate('/', {replace: true})
