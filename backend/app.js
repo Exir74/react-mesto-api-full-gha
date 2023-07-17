@@ -17,6 +17,7 @@ const allowedCors = [
   'localhost:3000',
   'exir74.nomoredomains.xyz',
 ];
+
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
 const app = express();
