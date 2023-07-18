@@ -138,7 +138,7 @@ function App() {
     setSaveText('Создание...')
     api.addUserCard(name, link)
       .then((newCard) => {
-        setCards([newCard, ...cards])
+        setCards([newCard.data, ...cards])
         setIsRequestSent(true)
         closeAllPopups()
       })
@@ -189,7 +189,7 @@ function App() {
 
   function getCards() {
     api.getInitialCards().then((res) => {
-      setCards(res)
+      setCards(res.data)
     })
       .catch((err) => {
         console.log(err)

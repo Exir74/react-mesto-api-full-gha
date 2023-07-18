@@ -14,6 +14,7 @@ const allowedCors = [
   'http://exir74.nomoredomains.xyz',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
+  'http://localhost:3001',
   '127.0.0.1:3000',
   'localhost:3000',
   'exir74.nomoredomains.xyz',
