@@ -20,7 +20,7 @@ class Api {
       },
     })
       .then((res) => {
-        return this._getResponseData(res);
+        console.log(res)
       })
   }
 
@@ -34,6 +34,9 @@ class Api {
     })
       .then((res) => {
         return this._getResponseData(res);
+      })
+      .then((data)=>{
+       return data
       })
   }
 
