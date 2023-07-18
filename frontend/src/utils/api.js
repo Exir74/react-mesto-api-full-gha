@@ -20,7 +20,7 @@ class Api {
       },
     })
       .then((res) => {
-        console.log(res)
+        return this._getResponseData(res);
       })
   }
 
@@ -163,7 +163,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://api.exir74.nomoredomains.xyz',
+  baseUrl: 'https://api.exir74.nomoredomains.xyz',
   headers: {
     // authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
   },
