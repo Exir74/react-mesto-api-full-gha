@@ -114,6 +114,7 @@ module.exports.login = (req, res, next) => {
           sameSite: 'none',
         })
         .send(user)
+
         .end();
     })
     .catch((err) => {
