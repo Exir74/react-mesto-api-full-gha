@@ -124,7 +124,8 @@ function handleTokenCheck(){
 }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    // const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.includes(currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -149,7 +150,7 @@ function handleTokenCheck(){
     setSaveText('Создание...')
     api.addUserCard(name, link)
       .then((newCard) => {
-        setCards([newCard, ...cards])
+        setCards([newCard.data, ...cards])
         setIsRequestSent(true)
         closeAllPopups()
       })
@@ -200,7 +201,7 @@ function handleTokenCheck(){
 
   function getCards() {
     api.getInitialCards().then((res) => {
-      setCards(res)
+      setCards(res.data.reverse())
     })
       .catch((err) => {
         console.log(err)

@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.exir74.nomoredomains.xyz'
+export const BASE_URL = 'http://localhost:3000'
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -30,32 +30,28 @@ export const authorize = (password, email) => {
     })
   })
     .then((res => (res.json())))
-    .then((data)=>{
-      if(data._id) {
-        return data
-      }
-      return  null
+    .then((data) => {
+      return data
+
+      // if (data.token) {
+      //   localStorage.setItem('token', data.token);
+      //   return data;
+      // }
     })
-    // .then((data) => {
-    //   if (data.token) {
-    //     localStorage.setItem('token', data.token);
-    //     return data;
-    //   }
-    // })
     .catch(err => console.log(err))
 }
 
-export const checkToken = ()=>{
+export const checkToken = (token)=>{
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     credentials: 'include',
     headers: {
-      'Accept': 'application/json',
       'Content-Type': 'application/json',
+      "Authorization" : `Bearer ${token}`
     }
     })
     .then(res=> res.json())
-    //.then(data=> data)
+    .then(data=> data)
 
 }
 

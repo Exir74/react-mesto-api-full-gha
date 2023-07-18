@@ -16,7 +16,7 @@ class Api {
       method: 'GET',
       credentials: 'include',
       headers: {
-        'Content-Type': 'application/json'
+        //authorization: this.headers.authorization,
       },
     })
       .then((res) => {
@@ -29,7 +29,7 @@ class Api {
       method: 'GET',
       credentials: 'include',
       headers: {
-        'Content-Type': 'application/json'
+        //authorization: this.headers.authorization,
       },
     })
       .then((res) => {
@@ -42,6 +42,7 @@ class Api {
       method: 'PATCH',
       credentials: 'include',
       headers: {
+        //authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -58,6 +59,7 @@ class Api {
       method: 'POST',
       credentials: 'include',
       headers: {
+       // authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -75,6 +77,7 @@ class Api {
       method: 'DELETE',
       credentials: 'include',
       headers: {
+        authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
     }).then((res) => {
@@ -87,6 +90,7 @@ class Api {
       method: 'PUT',
       credentials: 'include',
       headers: {
+        authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
     })
@@ -100,6 +104,7 @@ class Api {
       method: 'DELETE',
       credentials: 'include',
       headers: {
+        authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
     })
@@ -114,6 +119,7 @@ class Api {
         method: 'PUT',
         credentials: 'include',
         headers: {
+          authorization: this.headers.authorization,
           'Content-Type': 'application/json',
         },
       })
@@ -125,6 +131,7 @@ class Api {
         method: 'DELETE',
         credentials: 'include',
         headers: {
+          authorization: this.headers.authorization,
           'Content-Type': 'application/json',
         },
       })
@@ -139,6 +146,7 @@ class Api {
       method: 'PATCH',
       credentials: 'include',
       headers: {
+        authorization: this.headers.authorization,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -152,9 +160,8 @@ class Api {
 }
 
 export const api = new Api({
-  // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
-  baseUrl: 'http://api.exir74.nomoredomains.xyz'
-  // headers: {
-  //   // authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
-  // },
+  baseUrl: 'http://localhost:3000',
+  headers: {
+    // authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
+  },
 });
