@@ -60,7 +60,7 @@ function App() {
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
-        if (res.status === 201 && 200) {
+        if (res.status === 201 || 200) {
           setIsInfoTooltipOpen(true)
           setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
@@ -207,7 +207,6 @@ function handleTokenCheck(){
       })
     api.getUserInformation().then((res) => {
       setCurrentUser(res)
-      console.log(currentUser)
     })
       .catch((err) => {
         console.log(err)

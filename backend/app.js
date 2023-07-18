@@ -22,7 +22,7 @@ const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
 const app = express();
 
-
+app.use(helmet());
 app.use(cors({
   origin: [
     'https://exir74.nomoredomains.xyz',
@@ -54,7 +54,7 @@ app.use(cors({
 //   }
 //   return next();
 // });
-app.use(helmet());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
