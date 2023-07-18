@@ -60,7 +60,7 @@ function App() {
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 201 || 200) {
           setIsInfoTooltipOpen(true)
           setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
@@ -113,7 +113,8 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    // const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.includes(currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -189,7 +190,7 @@ function App() {
 
   function getCards() {
     api.getInitialCards().then((res) => {
-      setCards(res.data)
+      setCards(res.data.reverse())
     })
       .catch((err) => {
         console.log(err)
