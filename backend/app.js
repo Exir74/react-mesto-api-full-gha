@@ -17,6 +17,7 @@ const allowedCors = [
   'https://localhost:3000',
   'https://127.0.0.1:3000',
   'http://localhost:3001',
+  'localhost:3001',
   '127.0.0.1:3000',
   'localhost:3000',
 ];
