@@ -106,15 +106,26 @@ module.exports.login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'super-secret',
         { expiresIn: '7d' },
       );
-      res
-        .cookie('jwt', token, {
-          maxAge: 3600000 * 24 * 7,
-          httpOnly: true,
-          secure: true,
-          sameSite: 'none',
-        })
-        .send({ token })
-        .end();
+      const { origin } = req.headers;
+      if (origin.indexOf('https://')) {
+        res
+          .cookie('jwt', token, {
+            maxAge: 3600000 * 24 * 7,
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+          })
+          .send({ token })
+          .end();
+      } else {
+        res
+          .cookie('jwt', token, {
+            maxAge: 3600000 * 24 * 7,
+            httpOnly: true,
+          })
+          .send({ token })
+          .end();
+      }
     })
     .catch((err) => {
       next(new AuthError(err.message));
