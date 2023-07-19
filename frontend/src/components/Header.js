@@ -25,7 +25,6 @@ function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedI
       localStorage.removeItem('token')
       setUserEmail('')
       setIsLoggedIn(false)
-      handleLogOut()
     }
   }
   return (

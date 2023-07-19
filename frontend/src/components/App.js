@@ -232,7 +232,6 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 setUserEmail={setUserEmail}
                 setIsLoggedIn={setIsLoggedIn}
-                handleLogOut={handleLogOut}
         />
         <Routes>
           <Route path='/sign-in'
