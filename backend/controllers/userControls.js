@@ -6,7 +6,7 @@ const ValidationError = require('../errors/ValidationError');
 const AuthError = require('../errors/AuthError');
 const ConflictError = require('../errors/ConflictError');
 const { JWT_SECRET } = require('../utils/constants');
-const test = 'ff'
+
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
