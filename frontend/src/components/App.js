@@ -60,7 +60,7 @@ function App() {
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
-        if (res.status === 200) {
+        if (res.status === 201 || 200) {
           setIsInfoTooltipOpen(true)
           setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
