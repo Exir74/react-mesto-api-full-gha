@@ -113,7 +113,7 @@ module.exports.login = (req, res, next) => {
           secure: true,
           sameSite: 'none',
         })
-        .send(token)
+        .send(user)
         .end();
     })
     .catch((err) => {
