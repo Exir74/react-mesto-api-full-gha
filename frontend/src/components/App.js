@@ -57,6 +57,14 @@ function App() {
       })
   }
 
+  function handleLogOut(){
+  api.logOutUser()
+    .then((res)=>{
+      setIsLoggedIn(false)
+      navigate('/sign-in', {replace: true})
+    })
+  }
+
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
@@ -232,6 +240,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 setUserEmail={setUserEmail}
                 setIsLoggedIn={setIsLoggedIn}
+                handleLogOut={handleLogOut}
         />
         <Routes>
           <Route path='/sign-in'
