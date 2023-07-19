@@ -112,7 +112,9 @@ module.exports.login = (req, res, next) => {
           httpOnly: true,
           secure: true,
           sameSite: 'none',
-        })
+        });
+      res
+        .cookie('origin', req.host)
         .send({ token })
         .end();
     })
