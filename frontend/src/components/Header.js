@@ -23,7 +23,7 @@ function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedI
 
   function actionLinkClick () {
     if (userEmail) {
-      //localStorage.removeItem('token')
+      localStorage.removeItem('token')
       setUserEmail('')
       setIsLoggedIn(false)
     }
