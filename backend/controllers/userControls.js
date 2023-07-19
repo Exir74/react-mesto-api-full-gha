@@ -7,6 +7,7 @@ const AuthError = require('../errors/AuthError');
 const ConflictError = require('../errors/ConflictError');
 // const { JWT_SECRET } = require('../utils/constants');
 const { NODE_ENV, JWT_SECRET } = process.env;
+const url = require('node:url');
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
@@ -114,7 +115,7 @@ module.exports.login = (req, res, next) => {
           sameSite: 'none',
         });
       res
-        .cookie('origin', req.url)
+        .cookie('origin', url)
         .send({ token })
         .end();
     })
