@@ -93,7 +93,17 @@ function App() {
   }
 
   React.useEffect(() => {
-    handleTokenCheck()
+    // handleTokenCheck()
+    api.getUserInformation()
+      .then((res)=>{
+        if (res._id) {
+          setIsLoggedIn(true)
+          navigate("/", {replace: true})
+          getCards()
+          console.log(res)
+        }
+    })
+      .catch(err=> console.log(err))
   }, [])
 
   // function handleTokenCheck() {
@@ -112,16 +122,16 @@ function App() {
   //   }
   // }
 
-function handleTokenCheck(){
-    auth.checkToken()
-      .then((res) => {
-        setIsLoggedIn(true)
-        setUserEmail(res.data.email)
-        navigate("/", {replace: true})
-        getCards()
-      })
-      .catch(err => console.log(err))
-}
+// function handleTokenCheck(){
+//     auth.checkToken()
+//       .then((res) => {
+//         setIsLoggedIn(true)
+//         setUserEmail(res.data.email)
+//         navigate("/", {replace: true})
+//         getCards()
+//       })
+//       .catch(err => console.log(err))
+// }
 
   function handleCardLike(card) {
     // const isLiked = card.likes.some(i => i._id === currentUser._id);
