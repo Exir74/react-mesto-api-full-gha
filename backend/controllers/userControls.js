@@ -8,7 +8,6 @@ const ConflictError = require('../errors/ConflictError');
 // const { JWT_SECRET } = require('../utils/constants');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
-
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.send({ data: users }))
@@ -104,7 +103,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET: 'super-secret',
+        NODE_ENV === 'production' ? JWT_SECRET : 'super-secret',
         { expiresIn: '7d' },
       );
       res
@@ -114,7 +113,7 @@ module.exports.login = (req, res, next) => {
           secure: true,
           sameSite: 'none',
         })
-        .send({token})
+        .send({ token })
         .end();
     })
     .catch((err) => {
