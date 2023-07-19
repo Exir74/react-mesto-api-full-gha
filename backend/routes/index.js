@@ -15,7 +15,7 @@ router.use(auth);
 
 router.use(userRouter);
 router.use(cardRouter);
-router.get('/signout', signout);
+router.use('/signout', signout);
 router.use(notFoundErrorHandler);
 
 module.exports = router;

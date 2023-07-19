@@ -57,14 +57,6 @@ function App() {
       })
   }
 
-  function handleLogOut(){
-  api.logOutUser()
-    .then((res)=>{
-      setIsLoggedIn(false)
-      navigate('/sign-in', {replace: true})
-    })
-  }
-
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
