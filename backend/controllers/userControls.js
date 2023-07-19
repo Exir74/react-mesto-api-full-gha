@@ -117,7 +117,6 @@ module.exports.login = (req, res, next) => {
     })
     .catch((err) => {
       next(new AuthError(err.message));
-
     });
 };
 
