@@ -16,17 +16,18 @@ function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedI
     } else if (isLoggedIn && !isLoginPage) {
       setActionText('Выход')
       setActionLink('/sign-in')
+      console.log('werwer')
     }},[isLoginPage, isLoggedIn])
 
 
 
   function actionLinkClick () {
     if (userEmail) {
-      handleLogout()
       localStorage.removeItem('token')
       setUserEmail('')
       setIsLoggedIn(false)
     }
+    handleLogout()
   }
   return (
     <header className="header">

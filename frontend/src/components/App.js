@@ -57,6 +57,7 @@ function App() {
   }
 
   function handleLogout(){
+    console.log('123')
     api.logoutUser()
       .then((data)=>{
       console.log(data)
