@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -9,7 +8,7 @@ const errorHandler = require('./errors/errorHandler');
 const routes = require('./routes/index');
 const { URL, PORT } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-
+const cors = require('cors')
 const allowedCors = [
   'https://exir74.nomoredomains.xyz',
   'http://exir74.nomoredomains.xyz',
@@ -22,7 +21,7 @@ const allowedCors = [
   '127.0.0.1:3000',
   'localhost:3000',
 ];
-const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
 const app = express();
 
@@ -42,7 +41,7 @@ const app = express();
 //     credentials: true
 //   }))
 
-app.use((req, res, next) => {
+app.use(function(req, res, next) {
   const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
