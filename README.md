@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.22.77
+IP 158.160.22.77
 
 Frontend https://exir74.nomoredomains.xyz
 
