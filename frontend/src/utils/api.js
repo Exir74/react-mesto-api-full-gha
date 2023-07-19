@@ -162,7 +162,7 @@ class Api {
   }
 
   logoutUser(){
-    return fetch(`${this.baseUrl}/sign-out`,{
+    return fetch(`${this.baseUrl}/signout`,{
       method: 'GET',
       credentials: 'include',
       headers:{
