@@ -17,7 +17,7 @@ import ProtectedRouteElement from "./ProtectedRoute";
 import * as auth from "../utils/auth";
 
 function App() {
-
+  const test ='test'
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
