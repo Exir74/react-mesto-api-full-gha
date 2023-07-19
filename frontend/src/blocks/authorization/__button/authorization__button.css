@@ -12,6 +12,12 @@
     opacity: #fff;
     transition: 0.7s opacity ease;
     cursor: pointer;
+
+}
+@media screen and (max-width: 906px) {
+    .authorization__button {
+    color: #000;
+    }
 }
 .authorization__button:hover{
     opacity: .85;
