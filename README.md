@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/Exir74/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.22.77
 
-Frontend https://...
+Frontend https://exir74.nomoredomains.xyz
 
-Backend https://...
+Backend https://api.exir74.nomoredomains.xyz
