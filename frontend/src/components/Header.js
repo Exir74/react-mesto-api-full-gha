@@ -2,7 +2,7 @@ import logo from "../image/logo.svg";
 import React from "react";
 import {Link} from "react-router-dom";
 
-function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedIn}) {
+function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedIn, handleLogout}) {
 
   const [actionText, setActionText] = React.useState('Вход')
   const [actionLink, setActionLink] = React.useState('/sign-in')
@@ -22,6 +22,7 @@ function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedI
 
   function actionLinkClick () {
     if (userEmail) {
+      handleLogout()
       localStorage.removeItem('token')
       setUserEmail('')
       setIsLoggedIn(false)

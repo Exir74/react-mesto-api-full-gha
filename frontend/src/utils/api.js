@@ -160,6 +160,19 @@ class Api {
         return this._getResponseData(res);
       })
   }
+
+  logoutUser(){
+    return fetch(`${this.baseUrl}/sign-out`,{
+      method: 'GET',
+      credentials: 'include',
+      headers:{
+        'Content-Type': 'application/json',
+      }
+    })
+      .then((res) => {
+        return this._getResponseData(res);
+      })
+  }
 }
 
 export const api = new Api({

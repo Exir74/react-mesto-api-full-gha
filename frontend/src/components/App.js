@@ -17,7 +17,6 @@ import ProtectedRouteElement from "./ProtectedRoute";
 import * as auth from "../utils/auth";
 
 function App() {
-  const test ='test'
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
@@ -55,6 +54,14 @@ function App() {
       .catch((err) => {
         console.log(err)
       })
+  }
+
+  function handleLogout(){
+    api.logoutUser()
+      .then((data)=>{
+      console.log(data)
+    })
+      .catch(err => console.log(err))
   }
 
   function handleRegister(password, email) {
@@ -232,6 +239,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 setUserEmail={setUserEmail}
                 setIsLoggedIn={setIsLoggedIn}
+                handleLogout={handleLogout}
         />
         <Routes>
           <Route path='/sign-in'
