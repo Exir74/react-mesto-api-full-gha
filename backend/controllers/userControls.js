@@ -114,7 +114,7 @@ module.exports.login = (req, res, next) => {
           sameSite: 'none',
         });
       res
-        .cookie('origin', req.host)
+        .cookie('origin', req.url)
         .send({ token })
         .end();
     })
