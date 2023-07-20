@@ -97,23 +97,19 @@ function App() {
   }
 
   React.useEffect(() => {
-    // handleTokenCheck()
     api.getUserInformation()
       .then((res)=>{
-        // if (res._id) {
           setUserEmail(res.email)
           setIsLoggedIn(true)
           navigate("/", {replace: true})
           getCards()
           console.log(res)
-        // }
     })
       .catch(err=> console.log(err))
   }, [])
 
 
   function handleCardLike(card) {
-    // const isLiked = card.likes.some(i => i._id === currentUser._id);
     const isLiked = card.likes.includes(currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
