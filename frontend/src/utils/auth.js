@@ -21,6 +21,7 @@ export const register = (password, email) => {
     })
   })
     .then((res)=>{
+      console.log(res)
       getResponse(res)
     })
 }
