@@ -1,4 +1,11 @@
 export const BASE_URL = 'https://api.exir74.nomoredomains.xyz'
+
+function getResponse(res) {
+  if (!res.ok) {
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+  return res.json();
+}
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -12,8 +19,8 @@ export const register = (password, email) => {
       email: email
     })
   })
-    .then((res) => {
-      return res
+    .then((res)=>{
+      getResponse(res)
     })
 }
 
@@ -29,16 +36,21 @@ export const authorize = (password, email) => {
       email: email
     })
   })
-    .then((res => (res.json())))
-    .then((data) => {
-      return data
+    .then((res)=>{
+      getResponse(res)
+    })
+    // .then((res => (res.json())))
+    // .then((data) => {
+    //   return data
 
       // if (data.token) {
       //   localStorage.setItem('token', data.token);
       //   return data;
       // }
+    // })
+    .then((res)=>{
+      getResponse(res)
     })
-    .catch(err => console.log(err))
 }
 
 export const checkToken = (token)=>{
@@ -50,7 +62,9 @@ export const checkToken = (token)=>{
       "Authorization" : `Bearer ${token}`
     }
     })
-    .then(res=> res.json())
+    .then((res)=>{
+      getResponse(res)
+    })
 
 }
 
