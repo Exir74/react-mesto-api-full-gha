@@ -49,13 +49,6 @@ function App() {
         setUserEmail(email)
         getCards()
       })
-      //   if (data) {
-      //     setIsLoggedIn(true)
-      //     navigate('/', {replace: true})
-      //     setUserEmail(email)
-      //     getCards()
-      //   }
-      // })
       .catch((err) => {
         setIsRegistrationSuccess(false)
         setIsInfoTooltipOpen(true)
@@ -83,17 +76,6 @@ function App() {
             setIsInfoTooltipOpen(true)
       })
     setTimeout(() => setIsInfoTooltipOpen(false), 2000)
-      //   if (res.status === 200) {
-      //     setIsInfoTooltipOpen(true)
-      //     setIsRegistrationSuccess(true)
-      //     navigate('/sign-in', {replace: true})
-      //   } else {
-      //     setIsRegistrationSuccess(false)
-      //     setIsInfoTooltipOpen(true)
-      //   }
-      //   setTimeout(() => setIsInfoTooltipOpen(false), 2000)
-      // })
-      // .catch(err => console.log(err))
   }
 
   function handleEditProfileClick() {
@@ -118,43 +100,17 @@ function App() {
     // handleTokenCheck()
     api.getUserInformation()
       .then((res)=>{
-        if (res._id) {
+        // if (res._id) {
           setUserEmail(res.email)
           setIsLoggedIn(true)
           navigate("/", {replace: true})
           getCards()
           console.log(res)
-        }
+        // }
     })
       .catch(err=> console.log(err))
   }, [])
 
-  // function handleTokenCheck() {
-  //   if (localStorage.getItem('token')) {
-  //     const token = localStorage.getItem('token')
-  //     if (token) {
-  //       auth.checkToken(token)
-  //         .then((res) => {
-  //           setIsLoggedIn(true)
-  //           setUserEmail(res.data.email)
-  //           navigate("/", {replace: true})
-  //           getCards()
-  //         })
-  //         .catch(err => console.log(err))
-  //     }
-  //   }
-  // }
-
-// function handleTokenCheck(){
-//     auth.checkToken()
-//       .then((res) => {
-//         setIsLoggedIn(true)
-//         setUserEmail(res.data.email)
-//         navigate("/", {replace: true})
-//         getCards()
-//       })
-//       .catch(err => console.log(err))
-// }
 
   function handleCardLike(card) {
     // const isLiked = card.likes.some(i => i._id === currentUser._id);

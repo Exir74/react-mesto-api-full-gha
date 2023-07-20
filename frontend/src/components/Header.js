@@ -16,7 +16,6 @@ function Header({isLoginPage, isLoggedIn, userEmail , setUserEmail, setIsLoggedI
     } else if (isLoggedIn && !isLoginPage) {
       setActionText('Выход')
       setActionLink('/sign-in')
-      console.log('werwer')
     }},[isLoginPage, isLoggedIn])
 
 
