@@ -52,6 +52,8 @@ function App() {
         }
       })
       .catch((err) => {
+        setIsRegistrationSuccess(false)
+        setIsInfoTooltipOpen(true)
         console.log(err)
       })
   }
