@@ -48,9 +48,6 @@ export const authorize = (password, email) => {
       //   return data;
       // }
     // })
-    .then((res)=>{
-      return getResponse(res)
-    })
 }
 
 export const checkToken = (token)=>{
