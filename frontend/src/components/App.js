@@ -43,8 +43,7 @@ function App() {
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
-      .then((res) => {
-        console.log(res)
+      .then(() => {
         setIsLoggedIn(true)
         navigate('/', {replace: true})
         setUserEmail(email)
@@ -60,13 +59,13 @@ function App() {
       .catch((err) => {
         setIsRegistrationSuccess(false)
         setIsInfoTooltipOpen(true)
-        console.log(err)
       })
+    setTimeout(() => setIsInfoTooltipOpen(false), 2000)
   }
 
   function handleLogout(){
     api.logoutUser()
-      .then((data)=>{
+      .then(()=>{
 
     })
       .catch(err => console.log(err))
@@ -121,6 +120,7 @@ function App() {
       .then((res)=>{
         if (res._id) {
           setIsLoggedIn(true)
+          setUserEmail(email)
           navigate("/", {replace: true})
           getCards()
           console.log(res)
