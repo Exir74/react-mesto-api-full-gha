@@ -1,7 +1,6 @@
 export const BASE_URL = 'https://api.exir74.nomoredomains.xyz'
 
 function getResponse(res) {
-  console.log(res)
   if (!res.ok) {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
@@ -38,7 +37,7 @@ export const authorize = (password, email) => {
     })
   })
     .then((res)=>{
-      getResponse(res)
+      return getResponse(res)
     })
     // .then((res => (res.json())))
     // .then((data) => {
@@ -50,7 +49,7 @@ export const authorize = (password, email) => {
       // }
     // })
     .then((res)=>{
-      getResponse(res)
+      return getResponse(res)
     })
 }
 
@@ -64,7 +63,7 @@ export const checkToken = (token)=>{
     }
     })
     .then((res)=>{
-      getResponse(res)
+      return getResponse(res)
     })
 
 }
