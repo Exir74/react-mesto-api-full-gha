@@ -10,7 +10,7 @@ const errorHandler = require('./errors/errorHandler');
 const routes = require('./routes/index');
 const { URL, PORT } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { corsHandler } = require('./middlewares/corsHandler');
+const { cors } = require('./middlewares/corsHandler');
 // const allowedCors = [
 //   'https://exir74.nomoredomains.xyz',
 //   'http://exir74.nomoredomains.xyz',
@@ -26,7 +26,7 @@ const { corsHandler } = require('./middlewares/corsHandler');
 // const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 //
 const app = express();
-app.use(corsHandler);
+app.use(cors);
 //
 // app.use((req, res, next) => {
 //   const { origin } = req.headers;
