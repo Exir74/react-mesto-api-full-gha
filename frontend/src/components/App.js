@@ -120,7 +120,6 @@ function App() {
       .then((res)=>{
         if (res._id) {
           setIsLoggedIn(true)
-          setUserEmail(email)
           navigate("/", {replace: true})
           getCards()
           console.log(res)
