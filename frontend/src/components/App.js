@@ -103,7 +103,6 @@ function App() {
           setIsLoggedIn(true)
           navigate("/", {replace: true})
           getCards()
-          console.log(res)
     })
       .catch(err=> console.log(err))
   }, [])
