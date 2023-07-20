@@ -43,14 +43,19 @@ function App() {
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
-      .then(data => {
-        if (data) {
-          setIsLoggedIn(true)
-          navigate('/', {replace: true})
-          setUserEmail(email)
-          getCards()
-        }
+      .then(() => {
+        setIsLoggedIn(true)
+        navigate('/', {replace: true})
+        setUserEmail(email)
+        getCards()
       })
+      //   if (data) {
+      //     setIsLoggedIn(true)
+      //     navigate('/', {replace: true})
+      //     setUserEmail(email)
+      //     getCards()
+      //   }
+      // })
       .catch((err) => {
         setIsRegistrationSuccess(false)
         setIsInfoTooltipOpen(true)
@@ -77,6 +82,7 @@ function App() {
             setIsRegistrationSuccess(false)
             setIsInfoTooltipOpen(true)
       })
+    setTimeout(() => setIsInfoTooltipOpen(false), 2000)
       //   if (res.status === 200) {
       //     setIsInfoTooltipOpen(true)
       //     setIsRegistrationSuccess(true)
