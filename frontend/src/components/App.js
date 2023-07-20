@@ -119,7 +119,7 @@ function App() {
     api.getUserInformation()
       .then((res)=>{
         if (res._id) {
-          console.log(userEmail)
+          setUserEmail(res.email)
           setIsLoggedIn(true)
           navigate("/", {replace: true})
           getCards()
