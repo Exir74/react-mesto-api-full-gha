@@ -69,18 +69,19 @@ function App() {
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
-        if (res.status === 200) {
-          setIsInfoTooltipOpen(true)
-          setIsRegistrationSuccess(true)
-          navigate('/sign-in', {replace: true})
-        } else {
-          setIsRegistrationSuccess(false)
-          setIsInfoTooltipOpen(true)
-        }
-        setTimeout(() => setIsInfoTooltipOpen(false), 2000)
+        console.log(res)
       })
-      .catch(err => console.log(err))
-
+      //   if (res.status === 200) {
+      //     setIsInfoTooltipOpen(true)
+      //     setIsRegistrationSuccess(true)
+      //     navigate('/sign-in', {replace: true})
+      //   } else {
+      //     setIsRegistrationSuccess(false)
+      //     setIsInfoTooltipOpen(true)
+      //   }
+      //   setTimeout(() => setIsInfoTooltipOpen(false), 2000)
+      // })
+      // .catch(err => console.log(err))
   }
 
   function handleEditProfileClick() {
