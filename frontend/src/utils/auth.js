@@ -1,8 +1,8 @@
 export const BASE_URL = 'https://api.exir74.nomoredomains.xyz'
 
 function getResponse(res) {
+  console.log(res)
   if (!res.ok) {
-    console.log(res)
     return Promise.reject(`Ошибка: ${res.status}`);
   }
   return res.json();
