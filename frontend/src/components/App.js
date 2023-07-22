@@ -82,6 +82,7 @@ function App() {
   function handleRegister(password, email) {
     auth.register(password, email)
       .then((res) => {
+        console.log(res)
           setIsInfoTooltipOpen(true)
         setPopupData({success: true, image: successRegistration, text: 'Вы успешно зарегистрировались!'})
           // setIsRegistrationSuccess(true)
