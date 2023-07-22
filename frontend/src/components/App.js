@@ -15,6 +15,9 @@ import InfoTooltip from "./InfoTooltip";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import ProtectedRouteElement from "./ProtectedRoute";
 import * as auth from "../utils/auth";
+import spinner from "../image/loading_spinner.gif"
+import successRegistration from "../image/successRegistration.png"
+import failedRegistration from "../image/failedRegistration.png"
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
@@ -32,7 +35,7 @@ function App() {
   const [userEmail, setUserEmail] = React.useState('')
   const [registerPopupText, setRegisterPopupText] = React.useState('')
   const navigate = useNavigate()
-
+  const [popupData, setPopupData] = React.useState({})
   function isRegistrationSuccessHandler() {
     if (isRegistrationSuccess) {
       setRegisterPopupText('Вы успешно зарегистрировались!')
@@ -43,14 +46,26 @@ function App() {
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
+      .then(()=>{
+        setPopupData({success: true, image: spinner, text: 'Выполняется вход...'})
+        setIsRegistrationSuccess(true)
+        setIsInfoTooltipOpen(true)
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, 1000)
+        })
+      })
       .then(() => {
+        setPopupData({success: true, image: successRegistration, text: 'Вы вошщли'})
         setIsLoggedIn(true)
         navigate('/', {replace: true})
         setUserEmail(email)
         getCards()
       })
       .catch((err) => {
-        setIsRegistrationSuccess(false)
+        setPopupData({success: false, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
+        // setIsRegistrationSuccess(false)
         setIsInfoTooltipOpen(true)
       })
     setTimeout(() => setIsInfoTooltipOpen(false), 2000)
@@ -68,11 +83,13 @@ function App() {
     auth.register(password, email)
       .then((res) => {
           setIsInfoTooltipOpen(true)
-          setIsRegistrationSuccess(true)
+        setPopupData({success: true, image: successRegistration, text: 'Вы успешно зарегистрировались!'})
+          // setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
       })
       .catch(()=>{
-            setIsRegistrationSuccess(false)
+            // setIsRegistrationSuccess(false)
+        setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
             setIsInfoTooltipOpen(true)
       })
     setTimeout(() => setIsInfoTooltipOpen(false), 2000)
@@ -266,11 +283,19 @@ function App() {
         <ImagePopup
           card={selectedCard}
           onClose={closeAllPopups}/>
-        <InfoTooltip isRegistrationSuccess={isRegistrationSuccess}
+        {/*<InfoTooltip isRegistrationSuccess={isRegistrationSuccess}*/}
+        {/*             onClose={closeAllPopups}*/}
+        {/*             isOpen={isInfoTooltipOpen}*/}
+        {/*             isRegistrationSuccessHandler={isRegistrationSuccessHandler}*/}
+        {/*             PopupText={registerPopupText}*/}
+        {/*/>*/}
+        <InfoTooltip
+          // isRegistrationSuccess={isRegistrationSuccess}
                      onClose={closeAllPopups}
                      isOpen={isInfoTooltipOpen}
-                     isRegistrationSuccessHandler={isRegistrationSuccessHandler}
-                     PopupText={registerPopupText}
+                     popupData={popupData}
+                     // isRegistrationSuccessHandler={isRegistrationSuccessHandler}
+                     // PopupText={registerPopupText}
         />
 
       </div>

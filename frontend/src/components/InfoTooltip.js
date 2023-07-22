@@ -3,10 +3,9 @@ import closeIcon from "../image/Close-Icon.svg";
 import successRegistration from "../image/successRegistration.png"
 import failedRegistration from "../image/failedRegistration.png"
 
-function InfoTooltip({isRegistrationSuccess, onClose, isOpen, isRegistrationSuccessHandler, PopupText}) {
-  React.useEffect(()=>{
-    isRegistrationSuccessHandler()
-  }, [isOpen])
+function InfoTooltip({ onClose, isOpen, popupData}) {
+  // React.useEffect(()=>{
+  // }, [isOpen])
   return (
     <div className={`popup image-popup ${isOpen ? 'popup_open' : ''}`}>
       <div className="popup__content">
@@ -20,10 +19,10 @@ function InfoTooltip({isRegistrationSuccess, onClose, isOpen, isRegistrationSucc
         <div className="popup__success">
           <div className="popup__body">
             <img className='popup__registration-img'
-                 alt={isRegistrationSuccess ? 'Вы успешно зарегистрировались!' : `Что-то пошло не так!
+                 alt={popupData.success ? 'Вы успешно зарегистрировались!' : `Что-то пошло не так!
               Попробуйте ещё раз.`}
-                 src={isRegistrationSuccess ? successRegistration : failedRegistration}/>
-            <p className='popup__registration-text'>{PopupText}</p>
+                 src={popupData.image}/>
+            <p className='popup__registration-text'>{popupData.text}</p>
           </div>
         </div>
 
