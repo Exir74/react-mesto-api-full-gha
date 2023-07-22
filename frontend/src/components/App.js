@@ -65,7 +65,6 @@ function App() {
       })
       .catch((err) => {
         setPopupData({success: false, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
-        // setIsRegistrationSuccess(false)
         setIsInfoTooltipOpen(true)
       })
     setTimeout(() => setIsInfoTooltipOpen(false), 2000)
@@ -85,12 +84,10 @@ function App() {
         console.log(res)
           setIsInfoTooltipOpen(true)
         setPopupData({success: true, image: successRegistration, text: 'Вы успешно зарегистрировались!'})
-          // setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
       })
       .catch((err)=>{
         console.log(err)
-            // setIsRegistrationSuccess(false)
         setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
             setIsInfoTooltipOpen(true)
       })
