@@ -45,7 +45,7 @@ function App() {
   }
   function checkError(errCode){
     if (errCode === 409){
-      setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
+      setPopupData({success: true, image: failedRegistration, text: 'Такой email уже занят '})
     } else if (errCode === 400){
       setPopupData({success: true, image: failedRegistration, text: 'Введите корректные даннык'})
     } else {
@@ -57,7 +57,7 @@ function App() {
   function handleLogin(password, email) {
     auth.authorize(password, email)
       .then(()=>{
-        setPopupData({success: true, image: spinner, text: 'Выполняется вход...'})
+        setPopupData({success: true, image: spinner, text: 'Выполняется вход...;'})
         setIsRegistrationSuccess(true)
         setIsInfoTooltipOpen(true)
         return new Promise((resolve, reject) => {
