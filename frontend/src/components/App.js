@@ -43,6 +43,16 @@ function App() {
       setRegisterPopupText('Что-то пошло не так! Попробуйте ещё раз.')
     }
   }
+  function checkError(errCode){
+    if (errCode === 409){
+      setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
+    } else if (errCode === 400){
+      setPopupData({success: true, image: failedRegistration, text: 'Введите корректные даннык'})
+    } else {
+      setPopupData({success: true, image: failedRegistration, text: 'Упс! У нас ошибка'})
+
+    }
+  }
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
@@ -83,13 +93,14 @@ function App() {
       .then((res) => {
         console.log(res)
           setIsInfoTooltipOpen(true)
-        setPopupData({success: true, image: successRegistration, text: 'Вы успешно зарегистрировались!'})
+          setPopupData({success: true, image: successRegistration, text: 'Вы успешно зарегистрировались!'})
           navigate('/sign-in', {replace: true})
       })
       .catch((err)=>{
         console.log(err)
-        setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
-            setIsInfoTooltipOpen(true)
+        checkError(err.status)
+        // setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
+        setIsInfoTooltipOpen(true)
       })
     setTimeout(() => setIsInfoTooltipOpen(false), 2000)
   }
