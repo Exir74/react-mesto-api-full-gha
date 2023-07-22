@@ -87,7 +87,8 @@ function App() {
           // setIsRegistrationSuccess(true)
           navigate('/sign-in', {replace: true})
       })
-      .catch(()=>{
+      .catch((err)=>{
+        console.log(err)
             // setIsRegistrationSuccess(false)
         setPopupData({success: true, image: failedRegistration, text: 'Что-то пошло не так! Попробуйте ещё раз.'})
             setIsInfoTooltipOpen(true)
