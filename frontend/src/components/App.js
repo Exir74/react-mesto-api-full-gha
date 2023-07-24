@@ -45,12 +45,11 @@ function App() {
   }
   function checkError(errCode){
     if (errCode === 409){
-      setPopupData({success: true, image: failedRegistration, text: 'Такой email уже занят '})
+      return setPopupData({success: true, image: failedRegistration, text: 'Такой email уже занят '})
     } else if (errCode === 400){
-      setPopupData({success: true, image: failedRegistration, text: 'Введите корректные даннык'})
+      return setPopupData({success: true, image: failedRegistration, text: 'Введите корректные даннык'})
     } else {
-      setPopupData({success: true, image: failedRegistration, text: 'Упс! У нас ошибка'})
-
+      return setPopupData({success: true, image: failedRegistration, text: 'Упс! У нас ошибка'})
     }
   }
 
