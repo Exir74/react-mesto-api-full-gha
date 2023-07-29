@@ -178,7 +178,8 @@ class Api {
 export const api = new Api({
   baseUrl: 'https://api.exir74.nomoredomains.xyz',
   headers: {
-
+    'Access-Control-Allow-Credentials': 'true',
+    'Content-Type': 'application/json',
     // authorization: '70f54093-bc83-47bc-b65d-881ab4394db0',
   },
 });
