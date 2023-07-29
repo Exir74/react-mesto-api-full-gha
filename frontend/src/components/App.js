@@ -56,7 +56,7 @@ function App() {
   function handleLogin(password, email) {
     auth.authorize(password, email)
       .then(()=>{
-        setPopupData({success: true, image: spinner, text: 'Выполняется вход...;'})
+        setPopupData({success: true, image: spinner, text: 'Выполняется вход...'})
         setIsRegistrationSuccess(true)
         setIsInfoTooltipOpen(true)
         return new Promise((resolve, reject) => {
@@ -66,7 +66,7 @@ function App() {
         })
       })
       .then(() => {
-        setPopupData({success: true, image: successRegistration, text: 'Вы вошщли'})
+        setPopupData({success: true, image: successRegistration, text: 'Вы вошли'})
         setIsLoggedIn(true)
         navigate('/', {replace: true})
         setUserEmail(email)
